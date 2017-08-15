@@ -23,7 +23,7 @@ slack( "hey, how are you ?", "contact");
 </pre>
 
 ### out($content, $title)
-Beautiful print_r an array or echo a string content. Automatically recognize if the content is an array or a string. HTML markups (<pre>, <hr>, <h2>, <center>) are customizable.
+Beautiful print_r an array or echo a string content. Automatically recognize if the content is an array or a string. HTML markups are customizable.
 
 <pre>
 $age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
