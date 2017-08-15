@@ -13,4 +13,44 @@ function jsonOPEN($path){
 	}
 	return json_decode(file_get_contents($path), true);
 }
+/*
+ * slack
+ *
+ * Parse a JSON file and returns an associative array
+ *
+ * @param (string) the path of the json file. 
+ * @param (string) then name of the channel. The prefix "#" before the channel name is automatically set if needed.
+ * @return (bool) true if success
+ */
+function slack($message, $channel){
+	$message = urlencode($message); 
+
+	if( stripos($channel, "#") === false ){
+		$channel .= "#".$channel;
+	}
+
+	$data = 'payload=' . json_encode(
+		[
+			'channel'  => $channel,
+			'text'     => $message
+		]
+	);
+
+	$url = 'https://hooks.slack.com/services/X_REPLACE_WITH_YOUR_URL_X';
+
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	
+	$result = curl_exec($ch);
+	
+	if ($result !== false) {
+		return true;
+	}
+
+	curl_close($ch);
+}
 ?>
