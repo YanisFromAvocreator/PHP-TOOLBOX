@@ -8,7 +8,5 @@ include('path/to/TOOLBOX.php');
 JSON file to an associative array. The ".json" at the end of the path, is automatically set if needed
 
 <pre>
-<?php
 $json_array = jsonOPEN("absolute/path/to/Myjson");
-?>
 </pre>
