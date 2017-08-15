@@ -12,3 +12,10 @@ JSON file to an associative array. The ".json" at the end of the path, is automa
 <pre>
 $json_array = jsonOPEN("absolute/path/to/Myjson");
 </pre>
+
+# slack($message, $channel)
+Send a slack notification in real time. Used in CLI to watch a long process or in web for clients stuffs incoming
+
+<pre>
+slack( "hey, how are you ?", "contact");
+</pre>
