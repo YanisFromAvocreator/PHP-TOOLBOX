@@ -53,4 +53,33 @@ function slack($message, $channel){
 
 	curl_close($ch);
 }
+/*
+ * out
+ *
+ * beautiful way to echo a string or print an array
+ *
+ * @param (array or string) the content an array or a string
+ * @param (string) The title of outputed datas
+ * @return (string) echo or print_r the content
+ */
+function out($content, $title){
+
+	echo "<center><h2>";
+		echo str_repeat("_", 10);
+			echo $title;
+		echo str_repeat("_", 10);
+	echo "  </h2></center>";
+
+	echo "<pre>";
+		echo "\n";
+		if( is_array($content) ){
+			print_r($content);
+		}
+		else{
+			echo $content ;
+		}
+		echo "\n";
+	echo "</pre>";
+	echo "<hr>";
+}
 ?>
